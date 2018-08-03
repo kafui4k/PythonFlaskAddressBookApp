@@ -1,5 +1,4 @@
-import flask
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 #app instance
 app = Flask(__name__)
@@ -10,9 +9,11 @@ def home():
     return render_template('index.html')
 
 #add contact page method 
-@app.route('/addContact')
+@app.route('/addContact', methods=['GET', 'POST'])
 def addContact():
-    return render_template('addcontact.html')
+    if request.method == 'POST': #this execute upon form submit - by button send.
+        return "Success"
+    return render_template('addcontact.html')    
 
 #add search page method 
 @app.route('/searchContact')
@@ -21,5 +22,5 @@ def searchContact():
 
 #main
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
