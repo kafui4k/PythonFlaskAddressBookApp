@@ -9,15 +9,15 @@ def home():
     return render_template('index.html')
 
 #add contact page method 
-@app.route('/addContact', methods=['GET', 'POST'])
-def addContact():
+@app.route('/addcontact', methods=['GET', 'POST'])
+def addcontact():
     if request.method == 'POST': #this execute upon form submit - by button send.
         return "Success"
     return render_template('addcontact.html')    
 
 #add search page method 
-@app.route('/searchContact')
-def searchContact():
+@app.route('/searchcontact')
+def searchcontact():
     return render_template('searchcontact.html')
 
 #main
